@@ -6,10 +6,9 @@ def scan_port(host, port):
     s.settimeout(1)
 
     result = s.connect_ex((host, port))
+    s.close()
 
     if result == 0:
-        print(f"Port {port} is OPEN")
+        return f"Port {port} : OPEN"
     else:
-        print(f"Port {port} is CLOSED")
-
-    s.close()
+        return f"Port {port} : CLOSED"
